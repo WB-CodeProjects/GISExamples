@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>William Buffett · GIS Webmaps</title>
+  <meta name="description" content="Landing page linking to two GIS webmap projects exported from QGIS and hosted on GitHub Pages." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #0f172a; /* slate-900 */
+      --muted: #475569; /* slate-600 */
+      --card: #f8fafc; /* slate-50 */
+      --accent: #0ea5e9; /* sky-500 */
+      --accent-strong: #0284c7; /* sky-600 */
+      --border: #e2e8f0; /* slate-200 */
+      --shadow: 0 6px 20px rgba(2, 8, 23, 0.06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1220; /* near slate-950 */
+        --fg: #e5e7eb; /* slate-200 */
+        --muted: #9ca3af; /* gray-400 */
+        --card: #0f172a; /* slate-900 */
+        --accent: #38bdf8; /* sky-400 */
+        --accent-strong: #0ea5e9; /* sky-500 */
+        --border: #1f2937; /* gray-800 */
+        --shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      }
+    }
+
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 50% -10%, rgba(56, 189, 248, 0.08), transparent 60%), var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .brand {
+      display: flex; align-items: baseline; gap: 10px;
+    }
+    .brand h1 { font-size: 1.4rem; margin: 0; letter-spacing: 0.2px; }
+    .brand span { font-size: 0.95rem; color: var(--muted); }
+
+    .intro {
+      margin: 8px 0 28px;
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 70ch;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+    @media (max-width: 740px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(2,8,23,0.02), rgba(2,8,23,0.00)), var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 22px 22px 20px;
+      display: flex; flex-direction: column; gap: 12px;
+      transition: transform 120ms ease, box-shadow 120ms ease;
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(2, 8, 23, 0.10); }
+
+    .card h2 { font-size: 1.15rem; margin: 0 0 4px; letter-spacing: 0.2px; }
+    .card p { margin: 0; color: var(--muted); }
+
+    .actions { margin-top: 10px; }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--accent);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      border: 1px solid transparent;
+      transition: background 120ms ease, transform 80ms ease, box-shadow 120ms ease;
+      box-shadow: 0 3px 10px rgba(14, 165, 233, 0.35);
+    }
+    .btn:hover { background: var(--accent-strong); }
+    .btn:active { transform: translateY(1px); }
+    .btn:focus { outline: 3px solid rgba(56, 189, 248, 0.5); outline-offset: 2px; }
+
+    footer { margin-top: 40px; color: var(--muted); font-size: 0.9rem; }
+    footer a { color: var(--accent-strong); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Subtle badges for tech stack */
+    .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 2px; }
+    .badge {
+      font-size: 0.78rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: transparent;
+      border-radius: 999px; padding: 4px 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <h1>GIS Webmaps</h1>
+        <span>by William Buffett</span>
+      </div>
+    </header>
+
+    <p class="intro">
+      Two interactive maps exported from QGIS and hosted on GitHub Pages. Choose a project below to launch the live webmap.
+    </p>
+
+    <section class="grid" aria-label="Webmap projects">
+      <!-- CARD 1 -->
+      <article class="card" aria-labelledby="map1-title">
+        <h2 id="map1-title">Map 1: <span style="font-weight:600">&lt;Taupō Moho Depths&gt;</span></h2>
+        <p>
+          <!-- TODO: Replace with a clear, one‑sentence description. -->
+          An interactive map of the Taupō region showing seismic station locations, volcanic centres, and representative Moho depths. The data have been generalised for illustrative purposes and do not represent the exact research dataset..
+        </p>
+        <div class="badges" aria-hidden="true">
+          <span class="badge">QGIS → qgis2web</span>
+          <span class="badge">Leaflet</span>
+          <span class="badge">GitHub Pages</span>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://wb-codeprojects.github.io//QGISpractice/" target="_blank" rel="noopener" aria-label="Open Map 1 in a new tab">Open Map 1</a>
+        </div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="card" aria-labelledby="map2-title">
+        <h2 id="map2-title">Map 2: <span style="font-weight:600">&lt;Lidar to DEM Example&gt;</span></h2>
+        <p>
+          <!-- TODO: Replace with a clear, one‑sentence description. -->
+          An example of some familiarity with LIDAR. The DEM in this map was generated from the point cloud data .laz files downloaded from LINZ.
+        </p>
+        <div class="badges" aria-hidden="true">
+          <span class="badge">QGIS → qgis2web</span>
+          <span class="badge">Leaflet</span>
+          <span class="badge">GitHub Pages</span>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://wb-codeprojects.github.io//gis/" target="_blank" rel="noopener" aria-label="Open Map 2 in a new tab">Open Map 2</a>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <p>
+        These projects were developed to demonstrate my ability to quickly learn new tools and take initiative in applying them to practical geospatial problems.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
