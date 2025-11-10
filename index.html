@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>William Buffett · GIS Webmaps</title>
-  <meta name="description" content="Landing page linking to two GIS webmap projects exported from QGIS and hosted on GitHub Pages." />
+  <meta name="description" content="Landing page linking to GIS webmap projects exported from QGIS and hosted on GitHub Pages." />
   <style>
     :root {
       --bg: #ffffff;
@@ -74,6 +74,13 @@
     @media (max-width: 740px) {
       .grid { grid-template-columns: 1fr; }
     }
+    /* Make the grid support 3 columns on larger screens */
+    @media (min-width: 980px) {
+      .grid { 
+        grid-template-columns: repeat(3, minmax(0, 1fr)); 
+      }
+    }
+
 
     .card {
       background: linear-gradient(180deg, rgba(2,8,23,0.02), rgba(2,8,23,0.00)), var(--card);
@@ -87,9 +94,14 @@
     .card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(2, 8, 23, 0.10); }
 
     .card h2 { font-size: 1.15rem; margin: 0 0 4px; letter-spacing: 0.2px; }
-    .card p { margin: 0; color: var(--muted); }
+    .card p { margin: 0; color: var(--muted); flex-grow: 1; /* Helps align buttons in cards of different heights */ }
 
-    .actions { margin-top: 10px; }
+    .actions { 
+      margin-top: 10px; 
+      /* Aligns buttons to the bottom, even if p content length varies */
+      margin-top: auto; 
+      padding-top: 10px;
+    }
     .btn {
       display: inline-block;
       text-decoration: none;
@@ -102,6 +114,8 @@
       border: 1px solid transparent;
       transition: background 120ms ease, transform 80ms ease, box-shadow 120ms ease;
       box-shadow: 0 3px 10px rgba(14, 165, 233, 0.35);
+      margin-top: 8px; /* Add margin for buttons that wrap */
+      margin-right: 8px; /* Add margin for buttons next to each other */
     }
     .btn:hover { background: var(--accent-strong); }
     .btn:active { transform: translateY(1px); }
@@ -132,7 +146,8 @@
     </header>
 
     <p class="intro">
-      Two interactive maps exported from QGIS and hosted on GitHub Pages. Choose a project below to launch the live webmap.
+      <!-- UPDATED THIS LINE -->
+      Three interactive maps exported from QGIS and hosted on GitHub Pages. Choose a project below to launch the live webmap.
     </p>
 
     <section class="grid" aria-label="Webmap projects">
@@ -169,6 +184,26 @@
           <a class="btn" href="https://wb-codeprojects.github.io//gis/" target="_blank" rel="noopener" aria-label="Open Map 2 in a new tab">Open Map 2</a>
         </div>
       </article>
+
+      <!-- CARD 3 (NEW) -->
+      <article class="card" aria-labelledby="map3-title">
+        <h2 id="map3-title">Map 3: <span style="font-weight:600">Aoraki Conservation Map</span></h2>
+        <p>
+          Demonstrates a range of QGIS tool use in the Aoraki region for a hypothetical conservation operation.
+        </p>
+        <div class="badges" aria-hidden="true">
+          <span class="badge">QGIS → qgis2web</span>
+          <span class="badge">Leaflet</span>
+          <span class="badge">GitHub Pages</span>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://wb-codeprojects.github.io/AnotherGISexample/" target="_blank" rel="noopener" aria-label="Open Aoraki Webmap in a new tab">Open Webmap</a>
+          <a class="btn" href="Aoraki_Ops_Map_Practice.pdf" target="_blank" rel="noopener" aria-label="Open Aoraki Map PDF in a new tab">
+            View PDF
+          </a>
+        </div>
+      </article>
+
     </section>
 
     <footer>
