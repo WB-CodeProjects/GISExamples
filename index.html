@@ -41,7 +41,7 @@
     }
 
     .container {
-      max-width: 980px;
+      max-width: 1280px;
       margin: 0 auto;
       padding: 48px 20px 64px;
     }
@@ -74,10 +74,10 @@
     @media (max-width: 740px) {
       .grid { grid-template-columns: 1fr; }
     }
-    /* Make the grid support 3 columns on larger screens */
-    @media (min-width: 980px) {
+    /* Switch directly to 4 columns on wide screens, skipping 3 to maintain symmetry (2x2 or 1x4) */
+    @media (min-width: 1100px) {
       .grid { 
-        grid-template-columns: repeat(3, minmax(0, 1fr)); 
+        grid-template-columns: repeat(4, minmax(0, 1fr)); 
       }
     }
 
@@ -208,7 +208,7 @@
       <article class="card" aria-labelledby="map4-title">
         <h2 id="map4-title">Map 4: <span style="font-weight:600">&lt;Ideal Living Location CHCH&gt;</span></h2>
         <p>
-           A spatial analysis project identifying ideal living locations in Christchurch based on specific criteria, using available data from the council's data portal and openstreetmaps. This includes geohazards and walking distance to shops and a bus route, demonstrating a range of GIS tools including experimentation with isochrones.
+           Identifying ideal living locations in Christchurch based on criteria, using data from the council's data portal and openstreetmaps. This includes geohazards, walking distance to shops, and a bus route, demonstrating a range of GIS tools including experimentation with isochrones.
         </p>
         <div class="badges" aria-hidden="true">
           <span class="badge">QGIS → qgis2web</span>
